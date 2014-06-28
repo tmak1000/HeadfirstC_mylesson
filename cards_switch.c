@@ -20,11 +20,7 @@ int main(){
 
   switch(card_name[0]){
   case 'K':
-    val = 10;
-    break;
   case 'Q':
-    val = 10;
-    break;
   case 'j':
     val = 10;
     break;
