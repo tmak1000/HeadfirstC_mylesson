@@ -27,8 +27,19 @@ island * create(char *name)
   return i;
 }
 
-int main(){
+void release(island *start)
+{
+  island *i = start;
+  island *next = NULL;
+  for(;i != NULL;i = next){
+    next = i->next;
+    free(i->name);
+    free(i);
+  }
+}
 
+int main(){
+  /*
   char name[80];
   fgets(name,80,stdin);
   island *p_island0 = create(name);
@@ -37,6 +48,21 @@ int main(){
   island *p_island1 = create(name);
   p_island0->next = p_island1;
   display(p_island0);
+  */
+  island *start = NULL;
+  island *i = NULL;
+  island *next = NULL;
+  char name[80];
+  for(;fgets(name,80,stdin) != NULL;i = next){
+    next = create(name);
+    if(start == NULL)
+      start = next;
+    if(i != NULL)
+      i->next = next;
+  }
+  
+  display(start);
+  release(start);
 
   return 0;
 }
