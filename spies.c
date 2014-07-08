@@ -73,7 +73,7 @@ int main()
 
 	/*change this question new question*/
 	printf("This is true in %s, that question does not apply to the %s?\n"
-	       ,suspect,current->question);//自分で課題をみつけきりひらいていく社員
+	       ,suspect,current->question);
 	fgets(question,80,stdin);
 	current->question = strdup(question);
 
